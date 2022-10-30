@@ -1,8 +1,7 @@
 import React from "react";
-import { Registration } from "./Components/Registration";
 
 function App() {
-  return <Registration />;
+  return <div className="mt-6 text-lg">Text</div>;
 }
 
 export default App;
