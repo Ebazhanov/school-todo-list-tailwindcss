@@ -1,15 +1,17 @@
-import React from "react";
 import { BsCheck } from "react-icons/bs";
+import cn from "classnames";
 
 export const Check = ({ isCompleted }: any) => {
-  console.log(isCompleted);
   return (
     <div
-      className={`w-5 h-5 mr-2 border-2 ${
-        isCompleted ? "bg-pink-400" : ""
-      } border-pink-400 rounded-lg`}
+      className={cn(
+        "w-6 h-6 mr-2 border-2 border-pink-400 rounded-lg flex items-center",
+        {
+          "bg-pink-400": isCompleted,
+        }
+      )}
     >
-      {isCompleted && <BsCheck size={34} className="text-gray-900" />}
+      {isCompleted && <BsCheck size={24} className="text-gray-900" />}
     </div>
   );
 };

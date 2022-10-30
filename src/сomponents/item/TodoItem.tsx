@@ -1,5 +1,5 @@
-import React from "react";
 import { Check } from "./Check";
+import cn from "classnames";
 
 const TodoItem = ({ todo, changeTodo }: any) => {
   return (
@@ -8,7 +8,9 @@ const TodoItem = ({ todo, changeTodo }: any) => {
       onClick={() => changeTodo(todo.id)}
     >
       <Check isCompleted={todo.isCompleted} />
-      {todo.title}
+      <span className={cn({ "line-through": todo.isCompleted })}>
+        {todo.title}
+      </span>
     </button>
   );
 };

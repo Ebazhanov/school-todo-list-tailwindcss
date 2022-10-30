@@ -5,17 +5,17 @@ const data = [
   {
     id: 1,
     title: "Finish the essay collaboration",
-    isCompleted: true,
+    isCompleted: false,
   },
   {
     id: 2,
     title: "Send the finished assigment",
-    isCompleted: true,
+    isCompleted: false,
   },
   {
     id: 3,
     title: "Read next chapter of the book in Danish",
-    isCompleted: true,
+    isCompleted: false,
   },
 ];
 
@@ -34,8 +34,6 @@ export const Home = () => {
       !items[items.findIndex((i) => i.id === id)].isCompleted;
     setTodos(items);
   };
-
-  console.log(todos);
 
   return (
     <div className="w-4/5 mx-auto text-white">
