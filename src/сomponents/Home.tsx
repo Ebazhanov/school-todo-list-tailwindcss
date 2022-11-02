@@ -27,20 +27,17 @@ interface Item {
 
 export const Home = () => {
   const [todos, setTodos] = useState<Item[]>(data);
-  console.log("Zhenja", todos);
 
-  const changeTodo = (id: any) => {
-    const copy = [...todos];
-    const current = copy.find((t) => t.id === id);
-    if (current !== undefined) {
-      current.isCompleted = !current.isCompleted;
-    }
-    setTodos(copy);
+  const changeTodo = ({ id }: Item) => {
+    setTodos(
+      todos.map((item) =>
+        item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
+      )
+    );
   };
 
-  const removeTodo = (id: any) => {
-    const newList = todos.filter((item: any) => item.id !== id);
-    setTodos(newList);
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((item: Item) => item.id !== id));
   };
 
   return (
