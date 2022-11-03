@@ -38,10 +38,10 @@ export const Home = () => {
     setTodos(copy);
   };
 
-  function removeTodo(id: any) {
+  const removeTodo = (id: any) => {
     const newList = todos.filter((item: any) => item.id !== id);
     setTodos(newList);
-  }
+  };
 
   return (
     <div className="w-4/5 mx-auto text-white">
