@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoItem from "./item/TodoItem";
+import CreateTodoField from "./create-todo-field/CreateTodoField";
 
 const data = [
   {
@@ -28,17 +29,19 @@ interface Item {
 export const Home = () => {
   const [todos, setTodos] = useState<Item[]>(data);
 
-  const changeTodo = ({ id }: Item) => {
-    setTodos(
-      todos.map((item) =>
-        item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
-      )
-    );
+  const changeTodo = (id: any) => {
+    const copy = [...todos];
+    const current = copy.find((t) => t.id === id);
+    if (current !== undefined) {
+      current.isCompleted = !current.isCompleted;
+    }
+    setTodos(copy);
   };
 
-  const removeTodo = (id: number) => {
-    setTodos(todos.filter((item: Item) => item.id !== id));
-  };
+  function removeTodo(id: any) {
+    const newList = todos.filter((item: any) => item.id !== id);
+    setTodos(newList);
+  }
 
   return (
     <div className="w-4/5 mx-auto text-white">
@@ -51,6 +54,7 @@ export const Home = () => {
           changeTodo={changeTodo}
         />
       ))}
+      <CreateTodoField setTodos={setTodos} />
     </div>
   );
 };

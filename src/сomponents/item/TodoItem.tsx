@@ -5,7 +5,7 @@ import { Check } from "./Check";
 
 const TodoItem = ({ todo, changeTodo, removeTodo }: any) => {
   return (
-    <div className="flex items-center justify-between mb-4 rounded-2xl bg-zinc-800 p-5 max-w-md">
+    <div className="flex items-center justify-between mb-4 rounded-2xl bg-zinc-800 p-5 max-w-2xl">
       <button className="flex items-center" onClick={() => changeTodo(todo.id)}>
         <Check isCompleted={todo.isCompleted} />
         <span
